@@ -1,4 +1,14 @@
 {%extends 'optionhouseapp/base.html'%}
 
 {%block content%}
+    <ul>
+        {% for post in object_list %}
+        <article>
+            <h4>{{post.author}}</h4>
+            <h3> <a href="#">{{post.title}}</a></h3>
+        </article>
+        {% empty %}
+            <h3>No Posts</h3>
+        {% endfor %}
+    </ul>
 {%endblock content%}
