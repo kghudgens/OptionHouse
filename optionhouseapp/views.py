@@ -25,6 +25,16 @@ class PostDetailView(DetailView):
     template_name= 'optionhouseapp/post-detail.html'
 
 
+class PostListView(ListView):
+    model = Post
+    template_name = 'optionhouseapp/post-list.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["now"] = timezone.now()
+        return context
+
+
     
 def about(request):
     return render(request, 'optionhouseapp/about.html')
