@@ -14,7 +14,7 @@
     </header>
     <nav>
         <a href="{% url 'index' %}">Home</a>
-        <a href="#">Posts</a>
+        <a href="{% url 'post-list' %}">Posts</a>
         <a href="{% url 'about' %}">About</a>
     {% if user.authenticated %}
         <a href="#">Log Out</a>
