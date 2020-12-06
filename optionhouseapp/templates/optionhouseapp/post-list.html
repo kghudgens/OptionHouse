@@ -1,0 +1,15 @@
+{%extends 'optionhouseapp/base.html'%}
+
+{%block content%}
+<h2>View all of the posts created here on OptionHouse</h2>
+    <ul>
+        {% for post in object_list %}
+        <article>
+            <h4>{{post.author}}</h4>
+            <h3> <a href="{% url 'post-detail' post.id%}">{{post.title}}</a></h3>
+        </article>
+        {% empty %}
+            <h3>No Posts</h3>
+        {% endfor %}
+    </ul>
+{%endblock content%}
