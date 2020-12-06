@@ -1,12 +1,34 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Option House</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'opitonhouseapp/styles.css' %}">
 </head>
 <body>
-    {% block content %}
-    {% endblock content %}  
+    <header>
+        <h1>Option House</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Posts</a>
+        <a href="#">About</a>
+    {% if user.authenticated %}
+        <a href="#">Log Out</a>
+    {% else %}
+        <a href="#">Log In</a>
+        <a href="#">Register</a>
+    {% endif %}
+    </nav>
+    <main>
+        <article>
+            {% block content %}
+            {% endblock content %}  
+        </article>
+    </main>
+
 </body>
 </html>
