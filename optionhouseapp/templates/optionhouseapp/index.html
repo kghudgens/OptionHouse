@@ -5,7 +5,7 @@
         {% for post in object_list %}
         <article>
             <h4>{{post.author}}</h4>
-            <h3> <a href="#">{{post.title}}</a></h3>
+            <h3> <a href="{% url 'post-detail' post.id%}">{{post.title}}</a></h3>
         </article>
         {% empty %}
             <h3>No Posts</h3>
