@@ -1,5 +1,10 @@
 {%extends 'optionhouseapp/base.html'%}
 
 {%block content%}
-
+    <form method="POST">
+        {%csrf_token%}
+        <legend>Register</legend>
+        {{form}}
+        <input type="submit" value="Submit">
+    </form>
 {%endblock content%}
