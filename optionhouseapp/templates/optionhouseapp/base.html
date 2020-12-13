@@ -18,6 +18,7 @@
         <a href="{% url 'about' %}">About</a>
 
     {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}">Profile</a>
         <a href="{% url 'logout' %}">Log Out</a>
     {% else %}
         <a href="{% url 'login' %}">Log In</a>
@@ -33,7 +34,7 @@
     </main>
 
     <footer>
-        <p>Built by Kevin Hudgens</p>
+        <p>&copy; 2020 Kevin Hudgens<p>
     </footer>
 
 </body>
