@@ -2,5 +2,15 @@
 {% load crispy_forms_tags %}
 
 {%block content%}
+<img src="{{user.profile.image.url}}">
+<h2>{{user.username}}</h2>
+<p>{{user.email}}</p>
 
+<form method="POST" enctype="multipart/form-data">
+{%csrf_token%}
+<legend>Profile Info</legend>
+{{u_form | crispy}}
+{{p_form | crispy}}
+<input type="submit" value="submit">
+</form>
 {%endblock content%}
