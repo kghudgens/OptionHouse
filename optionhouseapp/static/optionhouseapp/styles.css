@@ -1,0 +1,19 @@
+*{
+    border: red 2px solid;
+}
+
+body{
+    background-color: #F1FAEE;
+}
+
+a:link{color: black}
+a:visited{color: black}
+a:hover{color:#457B9D}
+
+.title{font-size: 32px;}
+#nav_links{text-decoration: none; padding:8px; }
+#nav_links:hover{text-decoration: underline;}
+
+li{display: inline; }
+
+ul{list-style-type: none; margin: 0; padding:0}
