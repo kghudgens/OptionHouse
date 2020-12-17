@@ -1,6 +1,9 @@
 {%extends 'optionhouseapp/base.html'%}
 
 {%block content%}
+{% if user.is_authenticated %}
+<a href="{%url 'post_form'%}">Create</a>
+{% endif %}
     <ul>
         {% for post in object_list %}
         <article>
