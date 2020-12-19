@@ -10,6 +10,7 @@
 
     {% if user.is_authenticated and user == object.author %}
         <a href="{% url 'post-update' post.id %}">Update</a>
+        <a href="{% url 'post-delete' post.id %}">Delete</a>
     {% endif %}
     
 {%endblock content%}
