@@ -1,17 +1,24 @@
 {%extends 'optionhouseapp/base.html'%}
 
 {%block content%}
-{% if user.is_authenticated %}
-<a href="{%url 'post_form'%}">Create</a>
-{% endif %}
-    <ul>
-        {% for post in object_list %}
-        <article>
-            <h4>{{post.author}}</h4>
-            <h3> <a href="{% url 'post-detail' post.id%}">{{post.title}}</a></h3>
-        </article>
-        {% empty %}
-            <h3>No Posts</h3>
-        {% endfor %}
-    </ul>
+
+    {% if user.is_authenticated %}
+    <a href="{%url 'post_form'%}">Create</a>
+    {% endif %}
+
+        <ul>
+            {% for post in object_list %}
+
+            <article>
+                <h4>{{post.author}}</h4>
+                <h3> <a href="{% url 'post-detail' post.id%}">{{post.title}}</a></h3>
+            </article>
+
+            {% empty %}
+
+                <h3>No Posts</h3>
+                
+            {% endfor %}
+        </ul>
+
 {%endblock content%}
