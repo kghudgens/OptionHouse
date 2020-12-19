@@ -1,9 +1,15 @@
 {%extends 'optionhouseapp/base.html'%}
 
 {%block content%}
-{{object.image}} <br>
-{{object.title}} <br>
-{{object.author}} <br>
-{{object.date}} <br>
-{{object.content}} <br>
+
+    {{object.image}} <br>
+    {{object.title}} <br>
+    {{object.author}} <br>
+    {{object.date}} <br>
+    {{object.content}} <br>
+
+    {% if user.is_authenticated and user == object.author %}
+        <a href="{% url 'post-update' post.id %}">Update</a>
+    {% endif %}
+    
 {%endblock content%}
