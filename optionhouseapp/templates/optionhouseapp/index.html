@@ -3,17 +3,19 @@
 {%block content%}
 
     {% if user.is_authenticated %}
-    <a href="{%url 'post_form'%}">Create</a>
+    <p class="lead">
+        <a href="{%url 'post_form'%}">Create New Post</a>
+    </p>
     {% endif %}
 
         <ul>
             {% for post in object_list %}
-
-            <article>
-                <h4>{{post.author}}</h4>
-                <h3> <a href="{% url 'post-detail' post.id%}">{{post.title}}</a></h3>
-            </article>
-
+                <figure class="text-center">
+                    <article>
+                        <h4>{{post.author}}</h4>
+                        <h3> <a href="{% url 'post-detail' post.id%}">{{post.title}}</a></h3>
+                    </article>
+                </figure>
             {% empty %}
 
                 <h3>No Posts</h3>
