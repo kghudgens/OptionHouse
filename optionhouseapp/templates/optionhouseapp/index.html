@@ -2,10 +2,19 @@
 
 {%block content%}
 
+    <div class='container'>
+        <div class='jumbotron text-center'>
+            <h1>Option House</h1>
+            <p>Where average investors come to discuss their stock and option trades</p>
+        </div>
+    </div>  
+
     {% if user.is_authenticated %}
-    <p class="lead">
-        <a href="{%url 'post_form'%}">Create New Post</a>
-    </p>
+    <div class='container'>
+        <p class="text-right">
+            <a href="{%url 'post_form'%}">Create New Post</a>
+        </p>
+    </div>
     {% endif %}
 
         <ul>
