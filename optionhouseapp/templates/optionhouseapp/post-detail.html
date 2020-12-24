@@ -1,16 +1,30 @@
 {%extends 'optionhouseapp/base.html'%}
+{% load crispy_forms_tags %}
 
 {%block content%}
 
-    {{object.image}} <br>
-    {{object.title}} <br>
-    {{object.author}} <br>
-    {{object.date}} <br>
-    {{object.content}} <br>
+    <div class='container'>
+        {{object.image}} <br>
+        {{object.title}} <br>
+        {{object.author}} <br>
+        {{object.date}} <br>
+        {{object.content}} <br>
+    </div>
 
-    {% if user.is_authenticated and user == object.author %}
-        <a href="{% url 'post-update' post.id %}">Update</a>
-        <a href="{% url 'post-delete' post.id %}">Delete</a>
-    {% endif %}
-    
+    <div class='container'>
+        {% if user.is_authenticated and user == object.author %}
+            <a href="{% url 'post-update' post.id %}">Update</a>
+            <a href="{% url 'post-delete' post.id %}">Delete</a>
+        {% endif %}
+    </div>
+
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <legend></legend>
+            {{form | crispy}}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
 {%endblock content%}
