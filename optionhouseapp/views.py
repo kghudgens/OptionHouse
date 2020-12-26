@@ -1,15 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import (
     ListView, 
     DetailView, 
     CreateView, 
     UpdateView,
-    DeleteView
+    DeleteView,
+    FormView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.utils import timezone
 from django.urls import reverse_lazy
-from .models import Post
+from .forms import CommentForm
+from .models import Post, Comment
 
 class IndexListView(ListView):
     # Associated the list view with the post view
@@ -23,12 +25,10 @@ class IndexListView(ListView):
         context = super().get_context_data(**kwargs)
         context["now"] = timezone.now()
         return context
-
 class PostDetailView(DetailView):
     model = Post
     template_name= 'optionhouseapp/post-detail.html'
-
-
+    
 class PostListView(ListView):
     model = Post
     template_name = 'optionhouseapp/post-list.html'
@@ -73,9 +73,6 @@ class DeletePostView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
-
-
-
-            
+          
 def about(request):
     return render(request, 'optionhouseapp/about.html')
