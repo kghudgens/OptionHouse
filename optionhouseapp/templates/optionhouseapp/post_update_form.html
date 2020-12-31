@@ -2,9 +2,14 @@
 {% load crispy_forms_tags %}
 
 {%block content%}
-<form method="POST">
-    {% csrf_token %}
-    {{form | crispy}}
-    <input type="submit" value="Update">
-</form>
+
+    <form method="POST">
+        <fieldset class="form-group">
+            {% csrf_token %}
+            <legend class="border-bottom mb-4">Update Post</legend>
+            {{form | crispy}}
+            <input type="submit" value="Update">
+        </fieldset>
+    </form>
+
 {%endblock content%}
