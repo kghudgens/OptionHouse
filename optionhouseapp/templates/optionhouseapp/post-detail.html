@@ -2,13 +2,13 @@
 {% load crispy_forms_tags %}
 
 {%block content%}
-
+<!-- Content section of the detail view -->
     <div class='container'>
-        {{object.image}} <br>
-        {{object.title}} <br>
-        {{object.author}} <br>
-        {{object.date}} <br>
-        {{object.content}} <br>
+        {{object.image}} 
+        <h4>{{object.title}}</h4> 
+        <h6>{{object.author}}</h6> 
+        <h6>{{object.date}}</h6>
+        <p>{{object.content | linebreaks}}</p> 
     </div>
 
     <div class='container'>
