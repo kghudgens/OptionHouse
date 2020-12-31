@@ -1,35 +1,38 @@
 {%extends 'optionhouseapp/base.html'%}
 
 {%block content%}
-
+<!-- Title of page -->
     <div class='container'>
         <div class='jumbotron text-center'>
             <h1>Option House</h1>
             <p>Where average investors come to discuss their stock and option trades</p>
         </div>
     </div>  
-
+<!-- For signed in users, plus sign for new post  -->
     {% if user.is_authenticated %}
-    <div class='container'>
-        <p class="text-right">
-            <a href="{%url 'post_form'%}">Create New Post</a>
-        </p>
-    </div>
+        <div class='container'>
+            <p class="text-right">
+                <a href="{%url 'post_form'%}">&#8853;</a>
+            </p>
+        </div>
     {% endif %}
-
-        <ul>
+    
+    <!-- cards displaying most recent posts  -->
+    <div class="container">
             {% for post in object_list %}
-                <figure class="text-center">
-                    <article>
-                        <h4>{{post.author}}</h4>
-                        <h3> <a href="{% url 'post-detail' post.id%}">{{post.title}}</a></h3>
-                    </article>
-                </figure>
+            <div class="card"> 
+                    <div class="card-body">
+                        <h5 class="card-title"> <a href="{% url 'post-detail' post.id%}">{{post.title}}</a></h5>
+                        <h6 class="card-subtitle mb-2 text-muted" >{{post.author}}</h6>
+                        <h6>{{post.content| truncatewords:30}}</h6>
+                    </div>
+            </div>
+
             {% empty %}
 
                 <h3>No Posts</h3>
                 
             {% endfor %}
-        </ul>
+    </div>
 
 {%endblock content%}
