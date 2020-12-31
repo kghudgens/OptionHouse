@@ -10,10 +10,16 @@ a:link{color: black}
 a:visited{color: black}
 a:hover{color:#457B9D}
 
-.title{font-size: 32px;}
 #nav_links{text-decoration: none; padding:8px; }
 #nav_links:hover{text-decoration: underline;}
 
 li{display: inline; }
 
-ul{list-style-type: none; margin: 0; padding:0}
+ul{list-style-type: none; margin: 25px; padding:0; text-align: right;}
+
+h1{
+    height: 60px;
+}
+footer{
+    bottom: auto;
+}
