@@ -1,5 +1,10 @@
 from django.shortcuts import render
+import requests
+import json
 
-# Create your views here.
+response = requests.get("http://api.coincap.io/v2/assets")
+currencies = json.loads(response.text)
+
+
 def stock(request):
-    return render(request, 'stock/stock.html')
+    return render(request, "stock/stock.html")
